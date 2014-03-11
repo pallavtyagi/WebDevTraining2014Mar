@@ -1,0 +1,56 @@
+table{
+	background: #F5F5DC;
+	margin-top:100px;
+	margin-bottom:100px;
+	margin-right:50px;
+	margin-left:50px;
+	padding-top:5px;
+	padding-bottom:25px;
+	padding-right:50px;
+	padding-left:50px;
+	vertical-align: "center";
+	font-family: "Century Gothic";
+
+
+}
+.message
+{
+    border: 2px;
+}
+input[type="text"]
+{
+width:350px;
+height: 30px;
+border: 1.5px solid #ACAC9A;
+
+
+}
+input:focus
+{
+background-color:#C4C4B0;
+}
+input[type="range"]
+{
+width:350px;
+height: 30px;
+border: 1.5px solid green;
+
+}
+input[type="button"]
+{
+width:320px;
+height: 35px;
+margin-left:35px;
+display:inline-block;
+background-color:  #ACAC9A;
+display: inline-block;
+font-size: 20px;
+font-family: "Century Gothic";
+}
+
+h1{
+	border: 2px solid 	#DCDCC6;
+	background: 	#DCDCC6;
+	text-align: center;
+
+}

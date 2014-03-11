@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>SalCal</title>
+</head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript">
+function taxRange()
+{
+	var taxrange=document.getElementById("taxSal");
+	var taxrangeval=document.getElementById("taxrange");
+	taxrangeval.innerHTML=taxrange.value;
+}
+function onClickCalculate()
+{
+	var basicSal=document.getElementById("basicSal");
+	var basicSal=document.getElementById("hraSal");
+	var basicSal=document.getElementById("daSal");
+	var basicSal=document.getElementById("taxSal");
+	var result=document.getElementById("results");
+	var res=parseInt(basicSal.value)+parseInt(hraSal.value)+parseInt(daSal.value)+parseInt(taxSal.value);
+	result.innerHTML="Output: "+res;
+}
+
+function validationCheck()
+{
+	var msgs=document.getElementById("messages");
+	var count=0;
+	for(var i=msgs.children.length-1;i>=0;i--){
+			msgs.removeChild(msgs.children[i]);
+			
+		}
+	if(document.getElementById("basicSal").value=="")
+	{
+		document.getElementById("err_basic").style.visibility="visible";
+		var msgNode = document.createElement("li");
+		msgNode.innerHTML = "Please Give Correct Basic Salary!!!";
+		msgs.appendChild(msgNode);
+		count++;
+	}
+	if(document.getElementById("hraSal").value=="")
+	{
+		document.getElementById("err_hra").style.visibility="visible";
+		var msgNode = document.createElement("li");
+		msgNode.innerHTML = "Please Give Correct HRA!!!";
+		msgs.appendChild(msgNode);
+		count++;
+	}
+	if(document.getElementById("daSal").value=="")
+	{
+
+		document.getElementById("err_da").style.visibility="visible";
+		var msgNode = document.createElement("li");
+		msgNode.innerHTML = "Please Give Correct DA!!!";
+		msgs.appendChild(msgNode);
+		count++;
+	}	
+
+	if(count==0)
+		onClickCalculate();
+
+}
+
+function init()
+{
+	var taxrangechange=document.getElementById("taxSal");
+	taxrangechange.addEventListener("change", taxRange);
+	var btnsalcal=document.getElementById("calSal");
+	btnsalcal.addEventListener("click", validationCheck);
+}
+
+
+
+</script>
+<body>
+
+<table>
+	<tr><td colspan="2"><h1>Salary Calculator</h1></td></tr>
+<tr><td>Basic Salary</td><td><input type="text" name="basic" id="basicSal"><span id="err_basic" style="color:red; visibility:hidden;">*</span></td></tr>
+<tr><td>HRA</td><td><input type="text" name="basic" id="hraSal"><span id="err_hra" style="color:red; visibility:hidden;">*</span></td></tr>
+<tr><td>DA</td><td><input type="text" name="basic" id="daSal"><span id="err_da" style="color:red; visibility:hidden;">*</span></td></tr>
+<tr><td>TAX</td><td><input type="range" name="basic" id="taxSal" min="0" max="50" value="20"><span id="taxrange">20</span><output name="x" for="taxSal"></output></td></tr>
+<tr><td colspan="2"><input type="button" name="calsal" id="calSal" value="Calculate"></td></tr>
+<tr><td colspan="2"><ol id="messages" style="color:red;"></ol></td></tr>
+<tr><td colspan="2"><span id="results"></span></td></tr>
+</table>
+
+
+<script type="text/javascript">init();</script>
+</body>
+</html>
